@@ -1,0 +1,136 @@
+:root {
+  --grid-size: 100px;
+  --grid-height: calc(calc(100vh - var(--grid-size)) / var(--grid-size));
+  --upper-and-lower-margin: calc(calc(100vh - calc(var(--grid-height) * var(--grid-size))) / 2);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 50px; /* Adjust this value to control the out-of-bounds area */
+  overflow: hidden; /* Hide content that goes beyond the padding */
+}
+
+#dashboard {
+  background-color: rgba(333, 333, 111, .1);
+  border: 3px outset rgba(11, 11, 33, 0.6);
+  border-radius: 3px;
+  max-height:max-content;
+  outline-style: outset;
+  outline-width: 1px;
+  outline-color: rgba(33, 33, 11, .7);
+  outline-offset: 0px;
+  border-top: 0;
+  border-bottom: 0px dotted rgba(11, 11, 33, 1);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, var(--grid-size));
+  grid-auto-rows: var(--grid-size);
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+.module {
+  min-height: 150px;
+  min-width: 150px;
+  background-color: #afafafaf;
+  border: 1px outset rgba(100, 10, 200, 0.8);
+  outline: 1px outset rgba(100, 10, 200, 0.8);
+  border-radius: 3px;
+  z-index: 2;
+  overflow: auto;
+  box-shadow: 1vh 1vh 1vh 1vh rgba(17, 17, 51, .5);
+}
+
+.resizable {
+  resize: both;
+}
+
+.draggable {
+  position: absolute;
+}
+
+.resize-handle {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 9px 0px 3px 0px;
+  outline: 3px inset rgba(200, 200, 200, 1);
+  background-color: rgba(200, 200, 200, 1);
+  color: black;
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
+}
+
+/* Define starting dimensions for specific modules */
+.module.small-square {
+  width: 100px;
+  height: 100px;
+}
+
+.module.medium-square {
+  width: 200px;
+  height: 200px;
+}
+
+.module.large-square {
+  width: 300px;
+  height: 300px;
+}
+
+.module.small-tall {
+  width: 100px;
+  height: 300px;
+}
+
+.module.small-wide {
+  width: 300px;
+  height: 100px;
+}
+
+.module.medium-tall {
+  width: 200px;
+  height: 400px;
+}
+
+.module.medium-wide {
+  width: 400px;
+  height: 200px;
+}
+
+.module.large-tall {
+  width: 300px;
+  height: 500px;
+}
+
+.module.large-wide {
+  width: 500px;
+  height: 300px;
+}
+
+.grid-lines {
+  position: absolute;
+  top: calc(var(--grid-size) / -2);
+  left: calc(var(--grid-size) / -2);
+  width: calc(100vw + var(--grid-size));
+  height: calc(100vh + var(--grid-size));
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size); /* Use the defined grid size */
+  background-position: 0 0;
+}
+}

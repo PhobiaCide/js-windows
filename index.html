@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Resizable and Draggable Modules</title>
+  <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="./css/photon.css" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body class="window">
+
+  <header class="toolbar toolbar-header">
+    <div class="toolbar-actions">
+      <div class="btn-group">
+        <button class="btn btn-default">New</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="dashboard" class="window-content">
+    <section class="window module large-square resizable draggable">
+      <header class="toolbar">
+        <h1 class="title">Module Title</h1>
+        <div class="toolbar-actions">
+          <div class="btn-group traffic-signal">
+            <button class="btn btn-default">
+              <span>_</span>
+            </button>
+            <button class="btn btn-default">
+              <span>▢</span>
+            </button>
+          <button class="btn btn-negative">
+            <span>x</span>
+          </button>
+        </div>
+      </header>
+      <main class="window-content"></main>
+      <footer class="toolbar toolbar-footer">
+
+        <div class="toolbar-actions">
+          <div class="resize-handle"></div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <footer class="toolbar toolbar-footer">
+
+  </footer>
+
+  <script src="./js/script.js">
+    console.log(1)
+  </script>
+
+</body>
+
+</html>

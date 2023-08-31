@@ -1,0 +1,98 @@
+:root {
+  --grid-size: 100px;
+  --grid-height: calc(calc(100vh - var(--grid-size)) / var(--grid-size));
+  --upper-and-lower-margin: calc(calc(100vh - calc(var(--grid-height) * var(--grid-size))) / 2);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+/* Adjust this value to control the out-of-bounds area */
+  overflow: hidden; /* Hide content that goes beyond the padding */
+}
+
+#dashboard {
+  background-color: rgba(333, 333, 111, .1);
+  border: 3px outset rgba(11, 11, 33, 0.6);
+  border-radius: 3px;
+  max-height: 93%;
+  outline-style: outset;
+  outline-width: 1px;
+  outline-color: rgba(33, 33, 11, .7);
+  outline-offset: 0px;
+  border-top: 0;
+  border-bottom: 0px dotted rgba(11, 11, 33, 1);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, var(--grid-size));
+  grid-auto-rows: var(--grid-size);
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+.module {
+  background-color: #afafafaf;
+  border: 1px outset #afafafaf;
+  outline: 1px outset #00000099;
+  border-radius: 1px;
+  z-index: 1;
+  overflow: auto;
+  box-shadow: 1vh 1vh 1vh 1vh rgba(17, 17, 51, .5);
+}
+
+.resizable {
+  resize: both;
+}
+
+.draggable {
+  position: fixed;
+}
+
+.snapped {
+  position: absolute;
+}
+
+.resizable .toolbar-footer .toolbar-actions .resize-handle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px 0px 3px 0px;
+  border: 4px inset rgba(0, 0, 0, 0.3);
+  border-right: 0;
+  border-bottom: 0;
+  outline: 1px ridge rgba(300, 300, 300, 0);
+  background-color: transparent;
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
+}
+
+/* Define starting dimensions for specific modules */
+.module.large-square {
+  width: 300px;
+  height: 300px;
+}
+
+.traffic-signal {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.traffic-signal button {
+  width: 35px;
+}
